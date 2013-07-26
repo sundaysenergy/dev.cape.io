@@ -1,0 +1,27 @@
+.filters-form {
+  max-width: none;
+
+  .query-size {
+    width: 30px;
+  }
+
+  .query-match {
+    width: 60px;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  table {
+    input, select {
+      display: block;
+      width: 90%;
+    }
+  }
+
+  .controls {
+    button {
+      margin-left: 10px;
+    }
+  }
+}

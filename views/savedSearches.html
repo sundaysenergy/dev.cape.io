@@ -1,0 +1,23 @@
+<div data-ng-controller="SavedSearchesCtrl"
+    data-ng-show="savedSearches.length">
+  <h2>Your saved searches</h2>
+  <table class="table">
+    <tbody>
+    <tr data-ng-repeat="collection in savedSearches">
+      <!-- NAME -->
+      <td class="span3">
+        {{collection.name}}
+      </td>
+      <!-- ACTIONS -->
+      <td class="tar span1">
+        <a href="#" data-ng-click="removeSearch($index, $event)" title="Remove search">
+          <i class="icon-minus-sign pull-right"></i>
+        </a>
+        <a href="#" data-ng-click="applySearch($index, $event)" title="Apply search">
+          <i class="icon-ok-circle pull-right"></i>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,60 @@
+<div class="row-fluid">
+  <p>
+    <span data-ng-switch data-on="search.filters.length">
+      <span data-ng-switch-when="1">Match the following rule:</span>
+      <span data-ng-switch-default>Match
+        <select class="query-match" data-ng-model="search.match">
+          <option value="all" selected>all</option>
+          <option value="any">any</option>
+        </select>
+        of the following rules:</span>
+    </span>
+
+    <span class="pull-right">
+      Limit to: <input type="number" class="query-size" data-ng-model="search.size" required>
+    </span>
+  </p>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Kind</th>
+      <th>Comparison</th>
+      <th>Criteria</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-ng-repeat="filter in search.filters" data-ng-form="searchFilter">
+      <!-- KIND SELECT -->
+      <td width="30%">
+        <select data-ng-model="filter.kind"
+            data-ng-options="kind.key as kind.name for kind in availableKinds"></select>
+      </td>
+      <!-- COMPARISON SELECT -->
+      <td width="30%">
+        <select data-ng-model="filter.comparison"
+            data-ng-options="comparison.key as comparison.name for comparison in availableComparisons"></select>
+      </td>
+      <!-- VALUE INPUT -->
+      <td width="30%">
+        <input type="text" data-ng-model="filter.value" required>
+      </td>
+      <!-- ACTIONS -->
+      <td width="10%">
+        <a href="#" title="Add filter"
+            data-ng-click="addFilter($event)">
+          <i class="icon-plus-sign pull-right"></i>
+        </a>
+
+        <a href="#" title="Remove filter"
+            data-ng-hide="search.filters.length == 1"
+            data-ng-click="removeFilter($index, $event)">
+          <i class="icon-minus-sign pull-right"></i>
+        </a>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

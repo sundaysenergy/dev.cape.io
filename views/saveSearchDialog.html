@@ -1,0 +1,19 @@
+<div data-ng-form="SaveSearchDialogForm">
+  <div class="modal-header">
+    <h1>Pick a cool name</h1>
+  </div>
+
+  <div class="modal-body">
+    <p class="tac">
+      <input type="text" class="input-xlarge" data-ng-model="result" data-cape-focus="inputFocus" required>
+    </p>
+  </div>
+
+  <div class="modal-footer">
+    <button data-ng-click="close()" class="btn">Close</button>
+
+    <button class="btn btn-primary"
+        data-ng-click="close(result)"
+        data-ng-disabled="SaveSearchDialogForm.$invalid">Save search</button>
+  </div>
+</div>

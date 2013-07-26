@@ -1,0 +1,39 @@
+<div class="hero-unit">
+  <h1>Smart Search</h1>
+
+  <div data-ng-controller="FilterListCtrl">
+
+    <div class="clearfix" data-ng-include="'views/savedSearches.html'"></div>
+
+    <form name="searchForm" class="filters-form">
+      <h2>Create new search</h2>
+      <div data-ng-include="'views/filtersTable.html'"></div>
+
+      <p class="clearfix controls">
+        <button type="submit" class="btn btn-primary btn-large pull-right"
+            data-ng-disabled="searchForm.$invalid"
+            data-ng-click="makeQuery()">Search</button>
+
+        <button class="btn btn-large pull-right"
+            data-ng-disabled="searchForm.$invalid"
+            data-ng-click="saveSearch()">Save this search</button>
+      </p>
+    </form>
+
+    <div data-ng-controller="ImagesCtrl" data-ng-show="images.length" class="instagram_images clearfix">
+      <div class="image tac" data-ng-repeat="image in images">
+        <a ng-href="{{image.link}}">
+          <img ng-src="{{image.thumb}}" class="img-polaroid">
+        </a>
+        <div class="actions">
+          <button class="btn btn-success btn-plus">+</button>
+          <button data-ng-click="removeFromSearch(image)" class="btn btn-danger btn-minus">-</button>
+        </div>
+      </div>
+    </div>
+
+    <pre class="clearfix">Query: {{ queryDebug }}</pre>
+    <pre class="clearfix">Search: {{ search | json }}</pre>
+    <pre class="clearfix">Results: {{ results | json }}</pre>
+  </div>
+</div>

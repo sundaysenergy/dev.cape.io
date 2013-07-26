@@ -1,0 +1,14 @@
+.instagram_images {
+  .image {
+    float: left;
+    margin-right: 10px;
+    width: 180px;
+    height: 220px;
+  }
+
+  a {
+    @include inline-block;
+    width: 160px;
+    height: 160px;
+  }
+}
